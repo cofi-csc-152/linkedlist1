@@ -88,6 +88,11 @@ void list_head_remove(node*& head_ptr)
   remove_ptr = head_ptr;
   head_ptr = head_ptr->link();
   delete remove_ptr;
+
+  if (head_ptr == nullptr)
+  {
+    tail_ptr = nullptr;
+  }
 }
 
 void list_remove(node *previous_ptr)
@@ -103,7 +108,9 @@ void list_clear(node *&head_ptr)
 // Library facilities used: cstdlib
 {
   while (head_ptr != nullptr)
-  list_head_remove(head_ptr);
+  {
+    list_head_remove(head_ptr);
+  }
 }
 
 void list_copy(const node *source_ptr, node*& head_ptr, node*& tail_ptr)
