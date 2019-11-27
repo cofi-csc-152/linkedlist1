@@ -71,14 +71,16 @@ public:
     // TYPEDEFS and MEMBER CONSTANTS
     using value_type = int;
     using size_type = std::size_t; 
-    static const size_type DEFAULT_CAPACITY = 3;
+    // static const size_type DEFAULT_CAPACITY = 3;
     // CONSTRUCTOR
-    // Postcondition: the Bag is initialized and it contains 0 items.
-    Bag(size_type initial_capacity = DEFAULT_CAPACITY);
+    // Bag(size_type initial_capacity = DEFAULT_CAPACITY);
+    Bag();
     Bag(const Bag& source);
     ~Bag();
     // MODIFICATION MEMBER FUNCTIONS
-    void reserve(size_type new_capacity);
+    // void reserve(size_type new_capacity);
+    // we don't need a reserve function in a linked-list based
+    // bag class
     size_type erase(const value_type& target);
     bool erase_one(const value_type& target);
     void insert(const value_type& entry);
@@ -88,9 +90,6 @@ public:
     size_type size() const { return sz; }
     size_type count(const value_type& target) const; 
 private:
-    // value_type *data;
-    // size_type sz;
-    // size_type capacity;
     node *head_ptr;
     size_type sz;
     // NONMEMBER FRIEND FUNCTIONS
